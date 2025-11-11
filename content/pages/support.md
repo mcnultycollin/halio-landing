@@ -183,7 +183,7 @@ sections:
 
 seo:
   type: Seo
-  metaTitle: Halio Support
-  metaDescription: Get help with Halio: install issues, audio/haptics, FAQs, and contact support.
+  metaTitle: "Halio Support"
+  metaDescription: "Get help with Halio: install issues, audio/haptics, FAQs, and contact support."
 type: PageLayout
 ---
