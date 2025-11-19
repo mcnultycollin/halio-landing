@@ -1,74 +1,103 @@
-# Content Ops Starter
+# Halio Landing Page
 
-![Content Ops Starter](https://assets.stackbit.com/docs/content-ops-starter-thumb.png)
+A simple Next.js landing page with markdown-based content and Netlify Forms integration.
 
-Netlify starter that's made for customization with a flexible content model, component library, [visual editing](https://docs.netlify.com/visual-editor/overview/) and [Git Content Source](https://docs.netlify.com/create/content-sources/git/).
+## Features
 
-**⚡ View demo:** [https://content-ops-starter.netlify.app/](https://content-ops-starter.netlify.app/)
+- 3 simple pages: Home, Privacy, Support
+- Content managed via markdown files
+- Signup form with Netlify Forms (Name + Email)
+- Tailwind CSS for styling
+- Easy to deploy to Netlify
 
-## Table of Contents
+## Project Structure
 
-- [Deploying to Netlify](#deploying-to-netlify)
-- [Develop with Netlify Visual Editor Locally](#develop-with-netlify-visual-editor-locally)
-- [Building for production](#building-for-production)
-- [Setting Up Algolia Search](#setting-up-algolia-search)
-- [Next Steps](#next-steps)
-- [Support](#support)
+```
+/content
+  home.md       # Home page content
+  privacy.md    # Privacy policy content
+  support.md    # Support page content
 
-## Deploying to Netlify
+/src/pages
+  index.js      # Home page (includes signup form)
+  privacy.js    # Privacy page
+  support.js    # Support page
+```
 
-If you click "Deploy to Netlify" button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
+## Local Development
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/content-ops-starter)
+1. Install dependencies:
+```bash
+npm install
+```
 
-## Develop with Netlify Visual Editor Locally
-
-The typical development process is to begin by working locally. Clone this repository, then run `npm install` in its root directory.
-
-Run the Next.js development server:
-
-```txt
-cd content-ops-starter
+2. Run the development server:
+```bash
 npm run dev
 ```
 
-Install the [Netlify Visual Editor CLI](https://www.npmjs.com/package/@stackbit/cli). Then open a new terminal window in the same project directory and run the Netlify visual editor dev server:
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```txt
-npm install -g @stackbit/cli
-stackbit dev
-```
+## Editing Content
 
-This outputs your own Netlify visual editor URL. Open this, register, or sign in, and you will be directed to Netlify's visual editor for your new project.
+Simply edit the markdown files in the `/content` directory:
+- `/content/home.md` - Home page content
+- `/content/privacy.md` - Privacy policy
+- `/content/support.md` - Support page
 
-![Next.js Dev + Visual Editor Dev](https://assets.stackbit.com/docs/next-dev-stackbit-dev.png)
+## Deploying to Netlify
 
-## Building for production
+### Option 1: Deploy via Netlify Dashboard (Manual Deploy)
 
-To build a static site for production, run the following command
-
-```shell
+1. Build the site:
+```bash
 npm run build
 ```
 
-## Setting Up Algolia Search
+2. Go to [Netlify](https://app.netlify.com/) and drag & drop the `.next` folder
 
-This starter includes Algolia search integration. To set it up:
+### Option 2: Deploy via Git
 
-1. Create an [Algolia](https://www.algolia.com/) account
-2. Create a new application and index
-3. Set the following environment variables:
-   - `NEXT_PUBLIC_ALGOLIA_APP_ID` - Your Algolia application ID
-   - `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY` - Your Algolia search-only API key
-   - `NEXT_PUBLIC_ALGOLIA_INDEX_NAME` - Your index name
+1. Push your code to GitHub/GitLab
 
-## Next Steps
+2. In Netlify dashboard:
+   - Click "Add new site" > "Import an existing project"
+   - Connect your repository
+   - Build settings are already configured in `netlify.toml`
+   - Click "Deploy site"
 
-Here are a few suggestions on what to do next if you're new to Netlify visual editor:
+### Option 3: Netlify CLI
 
-- Learn [Netlify visual editor overview](https://docs.netlify.com/visual-editor/visual-editing/)
-- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
+1. Install Netlify CLI:
+```bash
+npm install -g netlify-cli
+```
 
-## Support
+2. Deploy:
+```bash
+netlify deploy --prod
+```
 
-If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
+## Netlify Forms Setup
+
+The signup form will automatically work once deployed to Netlify. Submissions will appear in your Netlify dashboard under "Forms".
+
+To receive email notifications:
+1. Go to your Netlify site dashboard
+2. Navigate to "Forms" > "Form notifications"
+3. Add email notifications
+
+## Customization
+
+- **Styling**: Edit the Tailwind classes in `/src/pages/*.js` files
+- **Form Fields**: Modify the form in `/src/pages/index.js`
+- **Navigation**: Update the nav links in each page component
+- **Colors/Design**: Customize Tailwind config in `tailwind.config.js`
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- Tailwind CSS
+- Netlify Forms
+- Markdown (via marked)

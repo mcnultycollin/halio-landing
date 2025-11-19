@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { marked } from 'marked';
 
-export default function Privacy({ content }) {
+export default function Support({ content }) {
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm">
@@ -35,7 +35,7 @@ export default function Privacy({ content }) {
 }
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'content', 'privacy.md');
+  const filePath = path.join(process.cwd(), 'content', 'support.md');
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const content = marked(fileContent);
 
