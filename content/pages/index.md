@@ -56,6 +56,9 @@ Early features, experiments, and breathing breaks in your inbox.
 <form name="newsletter" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="newsletter" />
   <p>
+    <label>Name: <input type="text" name="name" required /></label>
+  </p>
+  <p>
     <label>Email: <input type="email" name="email" required /></label>
   </p>
   <p>
