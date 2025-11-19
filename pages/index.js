@@ -1,27 +1,20 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-import Head from "next/head";
-import Layout from "../components/Layout";
-import { markdownToHtml } from "../lib/markdown";
-
-export default function Home({ html }) {
-  return (
-    <Layout>
-      <Head>
-        <title>Home</title>
-      </Head>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </Layout>
-  );
-}
+import Head from 'next/head';
+import { getPage } from '../lib/markdown';
 
 export async function getStaticProps() {
-  const contentPath = path.join(process.cwd(), "content", "index.md");
-  let md = "# Welcome\n\nThis is the home page. Replace this with your existing content.";
-  try {
-    md = await fs.readFile(contentPath, "utf8");
-  } catch {}
-  const html = await markdownToHtml(md);
-  return { props: { html } };
+  const page = await getPage('index');
+  return { props: { page } };
+}
+
+export default function Home({ page }) {
+  return (
+    <>
+      <Head>
+        <title>{page.frontmatter.title || 'Home'}</title>
+        <meta name="description" content={page.frontmatter.description || 'Home'} />
+      </Head>
+      <main dangerouslySetInnerHTML={{ __html: page.html }} />
+    </>
+  );
 }
 
