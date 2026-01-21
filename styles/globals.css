@@ -1,12 +1,22 @@
 /* Base */
-html, body, #__next { height: 100%; }
+html, body, #__next { min-height: 100%; }
 * { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.6;
   color: #111;
-  background: #fff;
+  /* Soft green edges fading to white center */
+  background: radial-gradient(
+      ellipse at 50% 40%,
+      #ffffff 0%,
+      #ffffff 42%,
+      #ecfdf5 62%,
+      #bbf7d0 82%,
+      #22c55e 110%
+    )
+    #ffffff;
+  background-repeat: no-repeat;
 }
 
 /* Layout */
@@ -73,4 +83,3 @@ button {
   cursor: pointer;
 }
 button:hover { background: #333; }
-
