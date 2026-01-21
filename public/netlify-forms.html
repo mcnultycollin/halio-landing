@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netlify Forms Registration</title>
+  </head>
+  <body>
+    <!-- This file is not linked anywhere. Netlify scans it at build time
+         to register the form defined below. Keep the form name, fields,
+         and hidden input in sync with your live form. -->
+    <form name="newsletter" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="newsletter" />
+      <p>
+        <label>Name: <input type="text" name="name" required /></label>
+      </p>
+      <p>
+        <label>Email: <input type="email" name="email" required /></label>
+      </p>
+      <p>
+        <button type="submit">Subscribe</button>
+      </p>
+    </form>
+  </body>
+  </html>
+
